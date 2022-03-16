@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>SurfsideMedia - Online Service Provider for your House Needs</title>
+    <title>Service</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -55,7 +55,7 @@
 
                 <ul class="collapse">
                     <li class="title">
-                        <a href="index.php.html"><img src="{{asset('images/logo.png')}}"></a>
+                        <a href="/"><img src="{{asset('images/logo.png')}}"></a>
                     </li>
                     <li> <a href="javascript:void(0);">Air Conditioners</a>
                         <ul class="drop-down one-column hover-fade">
@@ -120,8 +120,42 @@
                             <li><a href="servicesbycategory/18.html">Home Automation</a></li>
                         </ul>
                     </li>
-                    <li class="login-form"> <a href="index.php/register.html" title="Register">Register</a></li>
-                    <li class="login-form"> <a href="login.html" title="Login">Login</a></li>
+                    @if(Route::has('login'))
+                        @auth
+                            @if(Auth::user()->utype === 'ADM')
+                            <li class="login-form">
+                                <a href="">Admin account</a>
+                                <ul class="drop-down one-column hover-fade">
+                                    <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                    <li><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
+                                </ul>
+                            </li>
+                            @elseif(Auth::user()->utype === 'SVP')
+                            <li class="login-form">
+                                <a href="">Service Provider account</a>
+                                <ul class="drop-down one-column hover-fade">
+                                    <li><a href="{{route('sprovider.dashboard')}}">Dashboard</a></li>
+                                    <li><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
+                                </ul>
+                            </li>
+                            @else
+                            <li class="login-form">
+                                <a href="">Customer account</a>
+                                <ul class="drop-down one-column hover-fade">
+                                    <li><a href="{{route('customer.dashboard')}}">Dashboard</a></li>
+                                    <li><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
+                                </ul>
+                            </li>
+                            @endif
+                            <form action="{{route('logout')}}" method="Post" id="logout-form">
+                                @csrf
+                            </form>
+                        @else
+                            <li class="login-form"> <a href="{{route('register')}}" title="Register">Register</a></li>
+                            <li class="login-form"> <a href="{{route('login')}}" title="Login">Login</a></li>
+                        @endif
+                    @endif
+                   
                     <li class="search-bar">
                     </li>
                 </ul>
