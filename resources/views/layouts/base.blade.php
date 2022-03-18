@@ -18,6 +18,14 @@
     <script type="text/javascript" src="{{asset('assets/js/jquery-ui.1.10.4.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/toastr.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/modernizr.js')}}"></script>
+    <style>
+        .flat-mega-menu .login-form ul {
+            padding: 0 !important;
+        }
+        flat-mega-menu .drop-down {
+            border: 0px !important;
+        }
+    </style>
     @livewireStyles
 </head>
 <body>
@@ -57,7 +65,8 @@
                     <li class="title">
                         <a href="/"><img src="{{asset('images/logo.png')}}"></a>
                     </li>
-                    <li> <a href="javascript:void(0);">Air Conditioners</a>
+                    <li> <a href="{{route('home.service_categories')}}">Services</a></li>
+                    <!-- <li> <a href="javascript:void(0);">Air Conditioners</a>
                         <ul class="drop-down one-column hover-fade">
                             <li><a href="service-details/ac-wet-servicing.html">Wet Servicing</a></li>
                             <li><a href="service-details/ac-dry-servicing.html">Dry Servicing</a></li>
@@ -67,7 +76,7 @@
                             <li><a href="service-details/ac-gas-refill.html">Gas Refill</a></li>
                             <li><a href="service-details/ac-repair.html">Repair</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li> <a href="#">Appliances</a>
                         <ul class="drop-down one-column hover-fade">
                             <li><a href="servicesbycategory/11.html">Computer Repair</a></li>
@@ -127,10 +136,11 @@
                                 <a href="">Admin account</a>
                                 <ul class="drop-down one-column hover-fade">
                                     <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                    <li><a href="{{route('admin.service_categories')}}">Service Categories</a></li>
                                     <li><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                             </li>
-                            @elseif(Auth::user()->utype === 'SVP')
+                            @elseif(Auth::user()->utype === 'SPV')
                             <li class="login-form">
                                 <a href="">Service Provider account</a>
                                 <ul class="drop-down one-column hover-fade">
@@ -155,9 +165,6 @@
                             <li class="login-form"> <a href="{{route('login')}}" title="Login">Login</a></li>
                         @endif
                     @endif
-                   
-                    <li class="search-bar">
-                    </li>
                 </ul>
             </nav>
         </header>

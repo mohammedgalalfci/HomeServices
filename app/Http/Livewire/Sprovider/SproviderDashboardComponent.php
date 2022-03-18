@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Livewire\Sprovider;
-
 use Livewire\Component;
 
 class SproviderDashboardComponent extends Component
