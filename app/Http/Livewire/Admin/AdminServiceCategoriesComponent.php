@@ -7,6 +7,14 @@ use Livewire\WithPagination;
 class AdminServiceCategoriesComponent extends Component
 {
     use WithPagination;
+    public function DeleteCategory($id){
+        $category=ServiceCategory::find($id);
+        if($category->image){
+            unlink('images/categories/'.$category->image);
+        }
+        $category->delete();
+        session()->flash('message','Deleted Category Successfuly');
+    }
     public function render()
     {
         $categories=ServiceCategory::paginate(5);

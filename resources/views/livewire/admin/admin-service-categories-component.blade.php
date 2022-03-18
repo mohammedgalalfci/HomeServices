@@ -20,6 +20,9 @@
                     <div class="container">
                         <div class="row portfolioContainer">
                             <div class="col-md-12 profile1">
+                                @if(Session::has('message'))
+                                    <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                @endif
                                 <a class="btn btn-primary" style="margin-bottom:20px;" href="{{route('admin.add_service_categories')}}">Add New Service Category</a>
                                 <table class="table table-striped">
                                     <tr>
@@ -27,6 +30,7 @@
                                         <td>Image</td>
                                         <td>Name</td>
                                         <td>Slug</td>
+                                        <td>Action</td>
                                     </tr>
                                     @foreach($categories as $category)
                                     <tr>
@@ -38,6 +42,10 @@
                                         </td>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->slug}}</td>
+                                        <td>
+                                            <a href="{{route('admin.edit_service_categories',['id'=>$category->id])}}"><i class="fa fa-edit text-info"></i></a>
+                                            <a href="" onclick="confirm('Are U Sure Delete This Category')||event.stopImmediatePropagation();" wire:click.prevent="DeleteCategory({{$category->id}})"><i class="fa fa-trash text-danger" style="margin-left:20px"></i></a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </table>
