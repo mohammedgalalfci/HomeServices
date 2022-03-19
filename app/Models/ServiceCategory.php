@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceCategory extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'slug',
-        'image',
-    ];
+    protected $table="service_categories";
+    
+    public function servics()
+    {
+        return $this->hasMany(Servic::class);
+    }
 }
