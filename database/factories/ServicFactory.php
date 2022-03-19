@@ -21,7 +21,7 @@ class ServicFactory extends Factory
             'name'=>$service_name,
             'slug'=>$slug,
             'tagline'=>$this->faker->text(20),
-            'service_category_id'=>$this->faker->numberBetween(10,20),
+            'service_category_id'=>$this->faker->numberBetween(1,8),
             'price'=>$this->faker->numberBetween(100,600),
             // 'discount'=>$this->faker->numberBetween(10,20),
             // 'discount-type'

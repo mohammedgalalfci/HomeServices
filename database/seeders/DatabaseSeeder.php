@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         // $this->call([
         //     ServiceCategorySeeder::class
         // ]);
-        \App\Models\Servic::factory(10)->create();
+        //\App\Models\Servic::factory(10)->create();
         
     }
 }

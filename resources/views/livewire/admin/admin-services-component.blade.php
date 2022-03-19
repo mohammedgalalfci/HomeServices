@@ -6,7 +6,7 @@
                     <h1>All Services</h1>
                     <div class="crumbs">
                         <ul>
-                            <li><a href="/">Admin</a></li>
+                            <li><a href="/">Home</a></li>
                             <li>/</li>
                             <li>All Services</li>
                         </ul>
@@ -20,7 +20,10 @@
                     <div class="container">
                         <div class="row portfolioContainer">
                             <div class="col-md-12 profile1">
-                                <a class="btn btn-primary" style="margin-bottom:20px;" href="">Add New Service</a>
+                                @if(Session::has('message'))
+                                    <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                @endif
+                                <a class="btn btn-primary" style="margin-bottom:20px;" href="{{route('admin.add_service')}}">Add New Service</a>
                                 <table class="table table-striped">
                                     <tr>
                                         <td>#</td>
@@ -55,7 +58,7 @@
                                         <td>{{$service->created_at}}</td>
                                         <td>
                                             <a href=""><i class="fa fa-edit text-info" style="margin-left:20px"></i></a>
-                                            <a href=""><i class="fa fa-trash text-danger" style="margin-left:20px"></i></a>
+                                            <a href="" onclick="confirm('Are U Sure Delete This Category')||event.stopImmediatePropagation();" wire:click.prevent="DeleteService({{$service->id}})"><i class="fa fa-trash text-danger" style="margin-left:20px"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

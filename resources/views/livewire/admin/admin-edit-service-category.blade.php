@@ -6,7 +6,7 @@
                     <h1>Edit Service Category</h1>
                     <div class="crumbs">
                         <ul>
-                            <li><a href="/">Admin</a></li>
+                            <li><a href="/">Home</a></li>
                             <li>/</li>
                             <li>Edit Service Category</li>
                         </ul>
