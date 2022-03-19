@@ -10,9 +10,11 @@ class AdminServicesComponent extends Component
     use WithPagination;
     public function DeleteService($id){
         $service=Servic::find($id);
-        if($service->image && $service->thumbnail){
-            unlink('images/services/thumbnails/'.$service->thumbnail);
+        if($service->image){
             unlink('images/services/'.$service->image);
+        }
+        if($service->thumbnail){
+            unlink('images/services/thumbnails/'.$service->thumbnail);
         }
         $service->delete();
         session()->flash('message','Deleted Service Successfuly');

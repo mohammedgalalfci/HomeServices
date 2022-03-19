@@ -57,7 +57,7 @@
                                         <td>{{$service->category->name}}</td>
                                         <td>{{$service->created_at}}</td>
                                         <td>
-                                            <a href=""><i class="fa fa-edit text-info"></i></a>
+                                            <a href="{{route('admin.edit_service',['slug'=>$service->slug])}}"><i class="fa fa-edit text-info"></i></a>
                                             <a href="" onclick="confirm('Are U Sure Delete This Category')||event.stopImmediatePropagation();" wire:click.prevent="DeleteService({{$service->id}})"><i class="fa fa-trash text-danger" style="margin-left:20px"></i></a>
                                         </td>
                                     </tr>

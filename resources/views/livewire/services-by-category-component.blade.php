@@ -49,7 +49,7 @@
                             </div>
                             @endforeach
                             @else
-                            <div class="alert alert-warning">Empty Category From Services</div>
+                            <div class="alert alert-warning" style="text-align:center;position:relative;width:100%">Empty Category From Services</div>
                             @endif
                         </div>
                     </div>
