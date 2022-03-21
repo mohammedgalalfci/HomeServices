@@ -46,6 +46,14 @@
                                             <img src="{{asset('images/categories')}}/{{$image}}" alt="" width="60px">
                                         @endif
                                     </div>
+                                    <div class="form-group">
+                                        <label for="featured">Category Featured</label>
+                                        <select name="featured" id="featured" wire:model="featured" class="form-control">
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                        @error('featured') <p class="text-danger">{{$message}}</p>@enderror
+                                    </div>
                                     <button type="submit" class="btn btn-info">update Category</button>
                                 </form>
                             </div>

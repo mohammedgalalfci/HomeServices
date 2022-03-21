@@ -16,6 +16,7 @@ class AdminEditServiceCategory extends Component
     public $cat_slug;
     public $image;
     public $newImage;
+    public $featured;
 
     public function generateSlug(){
         $this->cat_slug=Str::slug($this->cat_name,'-');
@@ -27,6 +28,7 @@ class AdminEditServiceCategory extends Component
         $this->cat_name=$category->name;
         $this->cat_slug=$category->slug;
         $this->image=$category->image;
+        $this->featured=$category->featured;
     }
 
     public function updated($fields){
@@ -56,6 +58,7 @@ class AdminEditServiceCategory extends Component
         $category=ServiceCategory::find($this->cat_id);
         $category->name=$this->cat_name;
         $category->slug=$this->cat_slug;
+        $category->featured=$this->featured;
         if($this->newImage){
             $imageName=Carbon::now()->timestamp.'.'.$this->newImage->extension();
             $this->newImage->storeAs('categories',$imageName);

@@ -25,6 +25,7 @@ class AdminEditService extends Component
     public $description;
     public $inclusion;
     public $exclusion;
+    public $featured;
 
     public $newImage;
     public $newThumbnail;
@@ -46,6 +47,7 @@ class AdminEditService extends Component
         $this->image=$service->image;
         $this->thumbnail=$service->thumbnail;
         $this->description=$service->description;
+        $this->featured=$service->featured;
         $this->inclusion=str_replace('\n','|',trim($service->inclusion));
         $this->exclusion=str_replace('\n','|',trim($service->exclusion));
     }
@@ -118,6 +120,7 @@ class AdminEditService extends Component
         $service->image=$this->image;
         $service->thumbnail=$this->thumbnail;
         $service->description=$this->description;
+        $service->featured=$this->featured;
         $service->inclusion=str_replace('\n','|',trim($this->inclusion));
         $service->exclusion=str_replace('\n','|',trim($this->exclusion));
 

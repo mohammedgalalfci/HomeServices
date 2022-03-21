@@ -71,6 +71,14 @@
                                         @error('discount_type') <p class="text-danger">{{$message}}</p>@enderror
                                     </div>
                                     <div class="form-group">
+                                        <label for="featured">Service Featured</label>
+                                        <select name="featured" id="featured" wire:model="featured" class="form-control">
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                        @error('featured') <p class="text-danger">{{$message}}</p>@enderror
+                                    </div>
+                                    <div class="form-group">
                                         <label for="description">Service Description</label>
                                         <textarea name="description" id="description" class="form-control" wire:model="description"  autofocus=""></textarea>
                                         @error('description') <p class="text-danger">{{$message}}</p>@enderror

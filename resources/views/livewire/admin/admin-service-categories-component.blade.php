@@ -30,6 +30,7 @@
                                         <td>Image</td>
                                         <td>Name</td>
                                         <td>Slug</td>
+                                        <td>Featured</td>
                                         <td>Action</td>
                                     </tr>
                                     @foreach($categories as $category)
@@ -42,6 +43,13 @@
                                         </td>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->slug}}</td>
+                                        <td>
+                                            @if($category->featured)
+                                                Yes
+                                            @else
+                                                No
+                                            @endif
+                                        </td>
                                         <td>
                                             <a href="{{route('admin.services_by_category',['category_slug'=>$category->slug])}}"><i class="fa fa-list text-primary"></i></a>
                                             <a href="{{route('admin.edit_service_categories',['id'=>$category->id])}}"><i class="fa fa-edit text-info" style="margin-left:20px"></i></a>
