@@ -15,6 +15,9 @@ use App\Http\Livewire\Admin\AdminServicesComponent;
 use App\Http\Livewire\Admin\AdminServicesByCategory;
 use App\Http\Livewire\Admin\AdminAddServiceComponent;
 use App\Http\Livewire\Admin\AdminEditService;
+use App\Http\Livewire\Admin\AdminSliderComponent;
+use App\Http\Livewire\Admin\AdminAddSliderComponent;
+use App\Http\Livewire\Admin\AdminEditSliderComponent;
 
 use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
 
@@ -59,5 +62,7 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     Route::get('/admin/{category_slug}/services',AdminServicesByCategory::class)->name('admin.services_by_category');
     Route::get('/admin/service/add',AdminAddServiceComponent::class)->name('admin.add_service');
     Route::get('/admin/service/edit/{slug}',AdminEditService::class)->name('admin.edit_service');
-
+    Route::get('/admin/sliders',AdminSliderComponent::class)->name('admin.sliders');
+    Route::get('/admin/slider/add',AdminAddSliderComponent::class)->name('admin.add_slider');
+    Route::get('/admin/slider/edit/{id}',AdminEditSliderComponent::class)->name('admin.edit_slider');
 });
